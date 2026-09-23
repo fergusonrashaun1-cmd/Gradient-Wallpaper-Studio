@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gradient — Wallpaper Studio</title>
+
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                <span></span>
+            </div>
+
+            <div>
+                <div class="brand-name">Gradient</div>
+                <div class="brand-sub">WALLPAPER STUDIO</div>
+            </div>
+
+        </div>
+
+        <div class="header-meta">
+            1080 × 1920 · Wallpaper Studio
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="layout">
+
+
+        <!-- =========================================
+             PHONE PREVIEW
+             ========================================= -->
+
+        <section class="preview-column">
+
+            <div class="preview-area">
+
+                <div class="phone-glow" id="phoneGlow"></div>
+
+                <div class="phone">
+
+                    <div class="phone-screen">
+
+                        <!-- VIDEO -->
+                        <video
+                            id="wallpaperVideo"
+                            autoplay
+                            loop
+                            muted
+                            playsinline>
+                        </video>
+
+                        <!-- GRADIENT CANVAS -->
+                        <canvas
+                            id="wallpaperCanvas">
+                        </canvas>
+
+                        <div class="phone-notch"></div>
+
+                        <div class="status-bar">
+                            <span>9:41</span>
+                            <span>● ● ●</span>
+                        </div>
+
+                    </div>
+
+                    <div class="volume-button volume-one"></div>
+                    <div class="volume-button volume-two"></div>
+                    <div class="power-button"></div>
+
+                </div>
+
+            </div>
+
+
+            <p
+                id="previewCaption"
+                class="preview-caption">
+                Select a wallpaper to see it in the live preview.
+            </p>
+
+
+            <button
+                id="setWallpaperButton"
+                class="main-button">
+
+                <span class="button-icon">⬇</span>
+
+                <span>
+                    Set Wallpaper
+                </span>
+
+            </button>
+
+
+            <p class="download-note">
+                Your selected wallpaper can be downloaded from the browser.
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================================
+             CONTROLS
+             ========================================= -->
+
+        <section class="controls-column">
+
+
+            <!-- WALLPAPER VIDEOS -->
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Wallpaper videos</h2>
+
+                        <p>
+                            Choose a video for your wallpaper.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="videoButtons"
+                    class="video-grid">
+                </div>
+
+            </div>
+
+
+
+            <!-- COLORS -->
+
+            <div
+                id="colorsCard"
+                class="card">
+
+                <div class="card-header">
+
+                    <h2>Colors</h2>
+
+                    <button
+                        id="randomizeButton"
+                        class="small-button">
+
+                        ⤨ Randomize
+
+                    </button>
+
+                </div>
+
+
+                <div class="color-row">
+
+
+                    <div class="color-control">
+
+                        <input
+                            type="color"
+                            id="colorOne"
+                            value="#7C5CFC">
+
+                        <div>
+
+                            <span>
+                                Color 1
+                            </span>
+
+                            <strong id="colorOneHex">
+                                #7C5CFC
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="color-control">
+
+                        <input
+                            type="color"
+                            id="colorTwo"
+                            value="#22D3EE">
+
+                        <div>
+
+                            <span>
+                                Color 2
+                            </span>
+
+                            <strong id="colorTwoHex">
+                                #22D3EE
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PATTERN -->
+
+            <div class="card">
+
+                <h2>Pattern style</h2>
+
+                <div
+                    id="patternButtons"
+                    class="segment-group">
+
+                    <button
+                        class="segment active"
+                        data-pattern="gradient">
+                        Smooth<br>Gradient
+                    </button>
+
+                    <button
+                        class="segment"
+                        data-pattern="mesh">
+                        Geometric<br>Mesh
+                    </button>
+
+                    <button
+                        class="segment"
+                        data-pattern="shapes">
+                        Abstract<br>Shapes
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DIRECTION -->
+
+            <div class="card">
+
+                <h2>Direction</h2>
+
+                <div
+                    id="directionButtons"
+                    class="segment-group">
+
+                    <button
+                        class="segment"
+                        data-direction="linear">
+                        Linear
+                    </button>
+
+                    <button
+                        class="segment active"
+                        data-direction="diagonal">
+                        Diagonal
+                    </button>
+
+                    <button
+                        class="segment"
+                        data-direction="radial">
+                        Radial
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AI PROMPTS -->
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>AI prompt ideas</h2>
+
+                        <p>
+                            Tap a prompt to copy it.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div
+                    id="promptList"
+                    class="prompt-list">
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================
+     WALLPAPER SHEET
+     ========================================= -->
+
+<div
+    id="wallpaperSheet"
+    class="sheet-overlay">
+
+    <div class="sheet">
+
+        <div class="sheet-handle"></div>
+
+        <h2>
+            Apply wallpaper
+        </h2>
+
+        <p class="sheet-subtitle">
+            Choose where you want the wallpaper.
+        </p>
+
+
+        <button
+            class="sheet-option"
+            data-target="home">
+
+            <div class="sheet-icon">
+                🏠
+            </div>
+
+            <div class="sheet-text">
+                <strong>Home screen</strong>
+                <span>Download for your home screen</span>
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </button>
+
+
+
+        <button
+            class="sheet-option"
+            data-target="lock">
+
+            <div class="sheet-icon">
+                🔒
+            </div>
+
+            <div class="sheet-text">
+                <strong>Lock screen</strong>
+                <span>Download for your lock screen</span>
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </button>
+
+
+
+        <button
+            class="sheet-option"
+            data-target="both">
+
+            <div class="sheet-icon">
+                📱
+            </div>
+
+            <div class="sheet-text">
+                <strong>Home & lock screen</strong>
+                <span>Download for both screens</span>
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </button>
+
+
+
+        <button
+            id="cancelSheet"
+            class="cancel-button">
+
+            Cancel
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast">
+
+    Copied to clipboard
+
+</div>
+
+
+
+<script src="./app.js"></script>
+
+</body>
+</html>
